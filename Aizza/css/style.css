@@ -1,0 +1,110 @@
+/* 1. Declaração das variaveis de cores */
+
+:root{
+    --cor-fundo: #f0f2f5;
+    --cor-branco: #ffffff;
+    --cor-texto-primario: #000000;
+    --cor-texto-secundario: #00000069;
+    --cor-borda: #f0f2f5f1;
+    --cor-acento: #007bff;
+}
+
+/* 2. Reset e estilos Globais */
+ 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+/* 3. Estilo do componente principal */
+
+.card {
+    background-color: var(--cor-branco);
+    width: 320px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    /* animaçao começa aqui */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    overflow: hidden;
+    text-align: center;
+
+}
+/* 4. Efeito hover no card */
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.2); 
+}
+
+/* 5. Estilo da imagem  */
+.card_image-container{
+    width: 100%;
+    height: 200px; /* altura fixa para o container da imagem */
+}
+.card_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*Garante que a imagem cubra o espaço sem distorcer */
+}
+
+/* 6. Estilo da informação, nome, titulo e social */
+.card_info{
+    padding: 24px;
+}
+
+.card_name {
+    font-size: 1.5rem;
+    color: var(--cor-texto-primario);
+    margin-bottom: 8px;
+}
+
+.card_title{
+    font-size: 1rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 16px;
+
+}
+
+/* 7. Estilos dos icone sociais utilizando o flexbox */
+.card_social{
+display: flex;
+justify-content: center;
+gap: 16px;
+}
+
+.card_social a{
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+color: var(--cor-acento);
+border: 2px solid var(--cor-acento);
+border-radius: 50%;
+text-decoration: none;
+font-weight: bold;
+transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card_social a:hover {
+    background-color: var(--cor-acento);
+    color: var(--cor-branco);
+    border-color: var(--cor-acento);
+}
+
+/* 8. Design Responsivo (Nossa primeira Media Query) */
+@media (max-width: 400px) {
+    .card {
+        width: 90%;
+    }
+}
